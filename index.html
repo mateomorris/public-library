@@ -17,7 +17,7 @@
 	<div class="columns flex flex-wrap ">
 		<div class="column w-full" id="column-qr6pz">
 			<div class="primo-component" id="component-5egmu">
-				<div id="component-5egmu" class="w-full"><div class="text-gray-700 m-8 root" id="recipe-5egmu" data-aos="fade-up" data-aos-once="true">      
+				<div id="component-5egmu" class="w-full"><div class="text-gray-700 m-8 root" id="recipe-5egmu" data-aos="fade-up" data-aos-once="true">       
 	<div class="container">
             <div class="relative gallery rounded-tr rounded-tl overflow-hidden noprint">
                 <div class="glider-recipe"> 
@@ -107,7 +107,7 @@
                         
             	</div>
                 <div class="noprint">
-                    <button onclick="window.print()" class="mr-4 font-semibold text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-500 hover:text-white transition-colors duration-100">
+                    <button print="#component-5egmu" class="mr-4 font-semibold text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-500 hover:text-white transition-colors duration-100">
                         <i class="fas fa-print mr-1"></i>
                         <span>print</span>
                     </button>
@@ -157,18 +157,24 @@ new Glider(document.querySelector(`#component-${primo.id} .glider-recipe`), {
   }
 });
 
-window.printRecipe = function (e) { 
-	const nodes = document.querySelectorAll('[print]')
-    console.log(nodes)
-    // var divContents = document.getElementById("GFG").innerHTML; 
-    // var a = window.open('', '', 'height=500, width=500'); 
-    // a.document.write('<html>'); 
-    // a.document.write('<body > <h1>Div contents are <br>'); 
-    // a.document.write(divContents); 
-    // a.document.write('</body></html>'); 
-    // a.document.close(); 
-    // a.print(); 
-} </script>
+const nodes = document.querySelectorAll('[print]')
+nodes.forEach(node => {
+    node.addEventListener('click', () => {
+    	const target = node.getAttribute('print')
+        const head = document.querySelector('head').innerHTML
+        const divContents = document.querySelector(target).innerHTML; 
+        const a = window.open('', ''); 
+        a.document.write('<html>'); 
+        a.document.write(`<head>${head}</head>`); 
+        a.document.write('<body >'); 
+        a.document.write(divContents); 
+        a.document.write('</body></html>'); 
+        a.document.close(); 
+        a.print(); 
+    })
+})
+
+</script>
 			</div>
 			<div class="primo-component" id="component-s8xd0">
 				<div id="component-s8xd0" class="w-full"><div class="bg-blue-100 text-gray-900">
