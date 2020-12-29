@@ -85,7 +85,7 @@
                     </ul>
                 </div>
                 <div class="md:w-2/3 md:px-4 md:ml-2">
-                    <h3 class="text-2xl font-bold">Directions</h3>
+                    <h3 class="text-xl md:text-2xl font-bold">Directions</h3>
                     <div class="primo-copy"><ol>
 <li>Preheat over to 375.</li>
 <li>In a large bowl, combine baking mix, cheese and water.</li>
@@ -107,7 +107,7 @@
                         
             	</div>
                 <div class="noprint">
-                    <button print="#component-qrzdv" class="mr-4 font-semibold text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-500 hover:text-white transition-colors duration-100">
+                    <button print="#recipe-qrzdv" class="mr-4 font-semibold text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-500 hover:text-white transition-colors duration-100">
                         <i class="fas fa-print mr-1"></i>
                         <span>print</span>
                     </button>
@@ -165,14 +165,19 @@ nodes.forEach(node => {
     	const target = node.getAttribute('print')
         const head = document.querySelector('head').innerHTML
         const divContents = document.querySelector(target).innerHTML; 
-        const a = window.open('', ''); 
-        a.document.write('<html>'); 
-        a.document.write(`<head>${head}</head>`); 
-        a.document.write('<body >'); 
-        a.document.write(divContents); 
-        a.document.write('</body></html>'); 
-        a.document.close(); 
-        a.print(); 
+        const a = window.open('', 'PRINT', 'height=400,width=600'); 
+        console.log(a)
+        a.document.write(`
+        <html>
+            <head>${head}</head>
+            <body >${divContents}</body>
+        </html>`);
+        a.document.close(); // necessary for IE >= 10
+        a.focus(); // necessary for IE >= 10*/
+        a.onload = () => {
+        	window.print()
+            window.close()
+        }
     })
 })
 
@@ -248,7 +253,7 @@ nodes.forEach(node => {
                     </ul>
                 </div>
                 <div class="md:w-2/3 md:px-4 md:ml-2">
-                    <h3 class="text-2xl font-bold">Directions</h3>
+                    <h3 class="text-xl md:text-2xl font-bold">Directions</h3>
                     <div class="primo-copy"><ol>
 <li>Preheat over to 375.</li>
 <li>In a large bowl, combine baking mix, cheese and water.</li>
@@ -270,7 +275,7 @@ nodes.forEach(node => {
                         
             	</div>
                 <div class="noprint">
-                    <button print="#component-gh8ew" class="mr-4 font-semibold text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-500 hover:text-white transition-colors duration-100">
+                    <button print="#recipe-gh8ew" class="mr-4 font-semibold text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-500 hover:text-white transition-colors duration-100">
                         <i class="fas fa-print mr-1"></i>
                         <span>print</span>
                     </button>
@@ -326,14 +331,19 @@ nodes.forEach(node => {
     	const target = node.getAttribute('print')
         const head = document.querySelector('head').innerHTML
         const divContents = document.querySelector(target).innerHTML; 
-        const a = window.open('', ''); 
-        a.document.write('<html>'); 
-        a.document.write(`<head>${head}</head>`); 
-        a.document.write('<body >'); 
-        a.document.write(divContents); 
-        a.document.write('</body></html>'); 
-        a.document.close(); 
-        a.print(); 
+        const a = window.open('', 'PRINT', 'height=400,width=600'); 
+        console.log(a)
+        a.document.write(`
+        <html>
+            <head>${head}</head>
+            <body >${divContents}</body>
+        </html>`);
+        a.document.close(); // necessary for IE >= 10
+        a.focus(); // necessary for IE >= 10*/
+        a.onload = () => {
+        	window.print()
+            window.close()
+        }
     })
 })
 
