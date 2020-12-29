@@ -31,8 +31,8 @@
                             <img class="w-full h-64 object-cover mx-auto shadow" src="https://images.unsplash.com/photo-1544025162-d76694265947?ixid&#x3D;MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib&#x3D;rb-1.2.1&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1349&amp;q&#x3D;80" alt="ribs">
                         </div>
                 </div>
-                <div class="flex absolute bottom-0 right-0 mb-2 mr-2 text-white" x-data="{ rating: localStorage.getItem('rating') || 0 }">
-                	<button @click="rating = 1; localStorage.setItem('rating', 1)" class="focus:outline-none focus:opacity-75" color-color="https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixid&#x3D;MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib&#x3D;rb-1.2.1&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1350&amp;q&#x3D;80">
+                <div class="flex absolute bottom-0 right-0 mb-2 mr-2 text-white" x-data="{ rating: localStorage.getItem('rating') || 0 }" color-color="https://images.unsplash.com/photo-1546964124-0cce460f38ef?ixid&#x3D;MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib&#x3D;rb-1.2.1&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1350&amp;q&#x3D;80">
+                	<button @click="rating = 1; localStorage.setItem('rating', 1)" class="focus:outline-none focus:opacity-75">
                 		<svg x-bind:fill="rating > 0 ? 'currentColor' : 'transparent'" stroke="currentColor" class="w-6 h-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 	</button>
                 	<button @click="rating = 2; localStorage.setItem('rating', 2)" class="focus:outline-none focus:opacity-75">
@@ -154,7 +154,19 @@ new Glider(document.querySelector(`#component-${primo.id} .glider-recipe`), {
     next: `#component-${primo.id} .gallery .next`
   }
 });
-</script>
+
+window.printRecipe = function (e) { 
+	const nodes = document.querySelectorAll('[print]')
+    console.log(nodes)
+    // var divContents = document.getElementById("GFG").innerHTML; 
+    // var a = window.open('', '', 'height=500, width=500'); 
+    // a.document.write('<html>'); 
+    // a.document.write('<body > <h1>Div contents are <br>'); 
+    // a.document.write(divContents); 
+    // a.document.write('</body></html>'); 
+    // a.document.close(); 
+    // a.print(); 
+} </script>
 			</div>
 			<div class="primo-component" id="component-s8xd0">
 				<div id="component-s8xd0" class="w-full"><div class="bg-blue-100 text-gray-900">
